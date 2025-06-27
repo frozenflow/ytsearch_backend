@@ -16,6 +16,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Join split zip files
+        run: |
+          cat search.zip.* > combined.zip
+
+      - name: Unzip combined file
+        run: |
+          unzip combined.zip
+
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
