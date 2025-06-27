@@ -7,6 +7,11 @@ on:
         description: 'Search query to pass to the jar'
         required: true
         default: 'default search'
+        
+      key:
+        description: 'Enter the key'
+        required: true
+        default: 'no key'
 
 jobs:
   run-jar:
@@ -32,4 +37,4 @@ jobs:
 
       - name: Run search.jar with query argument
         run: |
-          java -jar search.jar "${{ github.event.inputs.query }}"
+          java -jar search.jar "${{ github.event.inputs.query }}" "${{ github.event.inputs.key }}"
